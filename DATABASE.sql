@@ -1,0 +1,60 @@
+DROP SCHEMA IF EXISTS SAAS;
+CREATE SCHEMA SAAS;
+
+USE SAAS;
+
+#SELECT * FROM Users;
+#SELECT * FROM Admins;
+#SELECT * FROM Submision;
+#SELECT * FROM Scenario;
+#SELECT * FROM Placeholder;
+-- MAIN TABLES
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS Users (
+  uid INT (10) UNSIGNED NOT NULL,
+  username VARCHAR(64) NOT NULL,
+  password_ VARCHAR(64) NOT NULL,
+  credits INT (10) UNSIGNED,
+  PRIMARY KEY (uid)
+) ENGINE=InnoDB;
+
+SHOW WARNINGS;
+#AUTO_INCREMENT MPOREI KAI OXI 
+CREATE TABLE IF NOT EXISTS Admins (
+  uid INT (10) UNSIGNED NOT NULL,
+  username VARCHAR(64) NOT NULL,
+  password_ VARCHAR(64) NOT NULL,
+  credits INT (10) UNSIGNED,
+  PRIMARY KEY (uid)
+) ENGINE=InnoDB;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS Submision (
+  submission_id INT (10) UNSIGNED NOT NULL,
+  uid INT (10) UNSIGNED NOT NULL ,
+  submission_name VARCHAR(64) NOT NULL,
+  creator VARCHAR(64) NOT NULL,
+  solver_id INT (10) UNSIGNED,
+  executedOn BIT NOT NULL,
+  PRIMARY KEY (submission_id)
+  
+) ENGINE=InnoDB;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS Scenario (
+  scenario_id INT (10) UNSIGNED NOT NULL,
+  scenario_name VARCHAR(64) NOT NULL,
+  solver_id INT (10) UNSIGNED,
+  creator VARCHAR(64) NOT NULL,
+  createdOn BIT NOT NULL,
+  status_ BIT NOT NULL,
+  PRIMARY KEY (scenario_id)
+) ENGINE=InnoDB;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS Placeholder (
+  service_id INT (10) UNSIGNED NOT NULL,
+  uid INT (10) UNSIGNED NOT NULL,
+  PRIMARY KEY (service_id)
+) ENGINE=InnoDB;
